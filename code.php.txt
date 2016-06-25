@@ -1,0 +1,28 @@
+<?php
+$page = $_SERVER['PHP_SELF'];
+$sec = "2";
+
+        $setmode17 = shell_exec("/usr/local/bin/gpio -g mode 21 out");
+        $setmode27 = shell_exec("/usr/local/bin/gpio -g mode 20 out");
+        $setmode22 = shell_exec("/usr/local/bin/gpio -g mode 16 out");
+        $setmode10 = shell_exec("/usr/local/bin/gpio -g mode 12 out");
+        if(isset($_GET['backward'])){
+                $gpio_on = shell_exec("/usr/local/bin/gpio -g write 21 1");
+                echo "backward";
+                }
+        else if(isset($_GET['forward'])){
+                $gpio_off = shell_exec("/usr/local/bin/gpio -g write 20 1");
+
+                echo "forward";
+                }
+       else if(isset($_GET['left'])){
+                $gpio_off = shell_exec("/usr/local/bin/gpio -g write 16 1 ");
+
+                echo "left";
+                }
+       else if(isset($_GET['right'])){
+                $gpio_off = shell_exec("/usr/local/bin/gpio -g write 12 1 ");
+
+                echo "right";
+                }
+              ?>
